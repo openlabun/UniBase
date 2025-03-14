@@ -28,5 +28,5 @@ jobs:
           git status
           docker stop unidb-app
           docker rm unidb-app
-          docker build -t unidb . || { echo "Docker build failed"; exit 1; }
-          docker run -d -it -p 5027:3000 --restart unless-stopped --name unidb-app unidb || { echo "Docker run failed"; exit 1; }
+          docker build -t unidb-image . || { echo "Docker build failed"; exit 1; }
+          docker run -d -it -p 5027:3000 --restart unless-stopped --name unidb unidb-image || { echo "Docker run failed"; exit 1; }
